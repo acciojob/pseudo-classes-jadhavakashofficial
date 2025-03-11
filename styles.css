@@ -1,1 +1,85 @@
-/*  your css code here. If applicable */
+/* 
+  1) Use :root to store the article’s background color. 
+     We'll define a custom property and use it in the article.
+*/
+:root {
+  --article-bg: rgb(135, 206, 235);
+}
+
+/* Basic reset/optional styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+  2) Set the article’s background color using our custom property 
+     and add some padding for clarity.
+*/
+article {
+  background-color: var(--article-bg);
+  padding: 20px;
+}
+
+/* 
+  3) Paragraph styles:
+     - :first-child -> white text on black background
+     - :last-child  -> red text
+     - Middle paragraph is left unstyled (standard color)
+*/
+article p:first-child {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+
+article p:last-child {
+  color: red;
+}
+
+/* 
+  4) Unordered list styling:
+     - All li have a gray background, 50% width, and 10px padding
+     - Odd items: darker background
+     - The second-to-last item (4th of 5) -> font size of 22px
+     - The third-to-last item (3rd of 5) -> pink text color
+*/
+
+ul {
+  list-style: none;  /* remove default bullets */
+  padding: 0;
+  margin-top: 20px;
+}
+
+ul li {
+  background-color: gray;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 5px; /* small space between items */
+}
+
+/* 
+  Every odd item is darker:
+  nth-child(odd) targets 1st, 3rd, 5th, etc.
+*/
+ul li:nth-child(odd) {
+  background-color: #555;
+  color: #fff; /* white text on darker background for contrast */
+}
+
+/* 
+  Second-to-last item -> font size of 22px
+  nth-last-child(2) means "count from the end"
+*/
+ul li:nth-last-child(2) {
+  font-size: 22px;
+}
+
+/*
+  Third-to-last item -> pink text color
+  nth-last-child(3) means "count from the end"
+*/
+ul li:nth-last-child(3) {
+  color: pink;
+}
